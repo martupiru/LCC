@@ -1,0 +1,33 @@
+actividad 1
+La información que se pide para cada página web es: 
+a. Algoritmo de firma del certificado 
+b. Autoridad de certificación 
+c. Algoritmo de encriptación de clave simétrica 
+d. Protocolo de encriptación 
+e. ¿Podrá un impostor robar sus datos? 
+
+pagina 1:  https://mail.ingenieria.uncuyo.edu.ar/mail/ 
+a. Firma X9.62 ECDSA con SHA-384
+b. CN = E5
+O = Let's Encrypt
+C = US
+
+c. AES_256_GCM
+d. TLS 1.3
+e. No, porque el certificado es confiable y el protocolo fuerte.
+ES HTTPS
+
+pagina 2: https://hb.redlink.com.ar/bna/login.htm 
+a. PKCS #1 SHA-256 con cifrado RSA
+b. CN = DigiCert EV RSA CA G2
+O = DigiCert Inc
+C = US
+
+c. AES_256_GCM
+d. TLS 1.2
+e. Si usa certificado de una CA confiable, protocolo TLS 1.2+ y una suite AEAD moderna, no es susceptible a ataques de tipo "impostor" (man-in-the-middle). Caso contrario, sí sería vulnerable.
+ES HTTPS
+
+pagina 3: http://isep.edu.ar/ 
+
+NO ES HTTPS, SOLO HTTP

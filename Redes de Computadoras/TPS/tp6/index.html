@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Encuesta FING UNCUYO</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function validar() {
+      const email = document.getElementById("email").value;
+      const opciones = document.getElementsByName("estacion");
+      let seleccionado = false;
+      let mensaje = "";
+
+      if (email.length < 7) mensaje += "El e-mail debe tener al menos 7 caracteres.\n";
+      if (!email.includes("@") || email.startsWith("@") || email.endsWith("@")) mensaje += "El e-mail debe contener una '@' válida.\n";
+      if (!email.includes(".") || email.startsWith(".") || email.endsWith(".")) mensaje += "El e-mail debe contener un punto '.' válido.\n";
+      if (/[^a-zA-Z0-9@._]/.test(email)) mensaje += "El e-mail contiene caracteres no permitidos.\n";
+
+      for (let i = 0; i < opciones.length; i++) {
+        if (opciones[i].checked) {
+          seleccionado = true;
+          break;
+        }
+      }
+
+      if (!seleccionado) mensaje += "Debe seleccionar una opción.\n";
+
+      if (mensaje !== "") {
+        alert(mensaje);
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <center>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnXISPDZY2d5Vf4RgbY-1PWmX_q8uH9KjkmA&s" 
+    alt="Redes de Computadoras" class="encabezado">
+  <form action="verificar.php" method="POST" onsubmit="return validar();">
+    <label for="email">Ingrese su mail:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+
+  <p>Seleccione su estación favorita:</p>
+
+  <div class="opcion">
+    <label>
+      <input type="radio" name="estacion" value="Otoño">
+      <span>Otoño</span>
+    </label>
+    <img src="https://i.pinimg.com/736x/a5/a5/cb/a5a5cbdb794ef579f6606ab6dcefe9d1.jpg" alt="Otoño">
+  </div>
+
+  <div class="opcion">
+    <label>
+      <input type="radio" name="estacion" value="Invierno">
+      <span>Invierno</span>
+    </label>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWFWUizFS8TBQzYxdt3j5yQbZBnAyPGiqI0w&s" alt="Invierno">
+  </div>
+
+  <div class="opcion">
+    <label>
+      <input type="radio" name="estacion" value="Primavera">
+      <span>Primavera</span>
+    </label>
+    <img src="https://volemos.nyc3.cdn.digitaloceanspaces.com/blog/wp-content/uploads/2018/11/Destinos-segun-el-an%CC%83o-primavera-trevelin.jpg" alt="Primavera">
+  </div>
+
+  <div class="opcion">
+    <label>
+      <input type="radio" name="estacion" value="Verano">
+      <span>Verano</span>
+    </label>
+    <img src="https://www.diariomendozasur.com/wp-content/uploads/2020/11/rafting.jpg" alt="Verano">
+  </div>
+
+    <br><br>
+    <input type="submit" value="Enviar">
+    </form>
+  </center>
+
+</body>
+</html>
