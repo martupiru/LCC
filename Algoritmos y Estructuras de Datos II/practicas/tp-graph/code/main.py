@@ -1,0 +1,30 @@
+from graph import *
+LA=[]
+arista1=(1,2)
+arista2=(1,3)
+arista3=(1,4)
+arista4=(2,1)
+arista5=(2,3)
+arista6=(2,6)
+arista7=(3,1)
+arista8=(3,2)
+arista9=(4,1)
+
+LA.append(arista1)
+LA.append(arista2)
+LA.append(arista3)
+LA.append(arista4)
+LA.append(arista5)
+LA.append(arista6)
+LA.append(arista7)
+LA.append(arista8)
+LA.append(arista9)
+LV=[1,2,3,4,5,6]
+grafo=createGraph(LA,LV)
+#print(grafo)
+#complete = isComplete(grafo)
+#listaa = convertTree(grafo)
+#print(listaa)
+camino = bestRoad(grafo, 1, 6)
+print(camino)
+
